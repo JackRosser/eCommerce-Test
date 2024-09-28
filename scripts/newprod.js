@@ -52,7 +52,7 @@ form.addEventListener("submit", function (e) {
   const price = document.getElementById("price");
 
   const productInsered = new NewProduct(name.value, description.value, supplier.value, image.value, price.value);
-  promo.push(productInsered);
+  localStorage.setItem("promo", JSON.stringify(productInsered));
 
   fetch(striveUrl, {
     method: "POST",
