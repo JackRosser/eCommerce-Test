@@ -40,4 +40,13 @@ body::-webkit-scrollbar {
 
 .deletetext:active {
   color: black !important;
+}
+
+form:hover {
+  background-color: white !important;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1040;
 }/*# sourceMappingURL=style.css.map */
