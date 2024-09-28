@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./assets/bootstrap_scss/custom-bootstrap.css" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/scss/style.css" />
-    <title>Dunder Mifflin Home</title>
+    <title>Dunder Mifflin New Product</title>
   </head>
   <body>
     <header>
@@ -40,8 +40,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Admin </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./new_product.html">Insert New Product</a></li>
-                  <li><a class="dropdown-item" href="./new_product.html">Insert New Product</a></li>
+                  <li><a class="dropdown-item" href="#">Insert New Product</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -59,10 +58,39 @@
       </nav>
     </header>
 
-    <main>sdfasfasd</main>
+    <main>
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col col-md-8 col-lg-6">
+            <form id="formProducts" class="border p-3 p-md-5">
+              <div class="mb-3">
+                <label for="name" class="form-label">Product</label>
+                <input type="text" class="form-control" id="name" />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" />
+              </div>
+              <div class="mb-3">
+                <label for="supplier" class="form-label">Supplier</label>
+                <input type="text" class="form-control" id="supplier" />
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="text" class="form-control" id="image" />
+              </div>
+              <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" />
+              </div>
+              <button class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <footer></footer>
-
     <!-- BootStrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -71,5 +99,6 @@
     ></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/newprod.js"></script>
   </body>
 </html>
