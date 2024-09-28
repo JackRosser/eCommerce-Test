@@ -17,7 +17,7 @@ fetch(striveUrl, {
     return action.json();
   })
   .then((data) => {
-    console.log(data);
+    section.innerHTML = "";
 
     data.forEach((element) => {
       const box = document.createElement("div");
