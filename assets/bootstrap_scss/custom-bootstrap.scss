@@ -1,0 +1,76 @@
+@import "mixins/banner";
+@include bsBanner("");
+
+// scss-docs-start import-stack
+// Configuration
+@import "functions";
+@import "variables";
+@import "variables-dark";
+
+//Iniziamo con il custom!!
+// Se da problemi con webkit-appearence bisogna aggiungere "appearance: none;" dove dice lui
+// cercare la mappa desiderata nel partial "_variables"
+// creare nuove variabili con quello che serve e inserirle in una nuova mappa
+// fare map-merge come nell'esempio
+//IMPORTANTE all'inizio importare da bootstrap.scss solo le variabili che servono, dopo il codice customizzato importare tutto il resto
+//
+//Le mappe utili in cui mergiare sono $spacers (per margin, padding etc), $grid-breakpoints, $theme-colors, $font-sizes
+$test: darkmagenta;
+
+$new-colors: (
+  "giacomo": $test
+);
+
+$theme-colors: map-merge($theme-colors, $new-colors);
+
+@import "mixins/banner";
+@include bsBanner("");
+
+// scss-docs-start import-stack
+// Configuration
+@import "functions";
+@import "variables";
+@import "variables-dark";
+@import "maps";
+@import "mixins";
+@import "utilities";
+
+// Layout & components
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "containers";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+@import "button-group";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "accordion";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "alert";
+@import "progress";
+@import "list-group";
+@import "close";
+@import "toasts";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "spinners";
+@import "offcanvas";
+@import "placeholders";
+
+// Helpers
+@import "helpers";
+
+// Utilities
+@import "utilities/api";
+// scss-docs-end import-stack
