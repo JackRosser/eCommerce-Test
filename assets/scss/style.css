@@ -16,6 +16,19 @@ body::-webkit-scrollbar {
   max-height: 3rem !important;
 }
 
+.promotion {
+  background-color: rgb(128, 190, 36);
+}
+
+.promotion a {
+  color: white;
+}
+
+.promotion a:hover {
+  background-color: orange;
+  color: white;
+}
+
 .deletebox div {
   background-color: rgb(249, 249, 249);
 }

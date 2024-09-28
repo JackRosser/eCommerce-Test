@@ -5,6 +5,8 @@ const striveUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const striveAuthorization =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY3YjRmZDVkMGU4ODAwMTViMzZlYTYiLCJpYXQiOjE3Mjc1MDk3NTcsImV4cCI6MTcyODcxOTM1N30.AbcoiybIdkr0JAIOuzXDyo6QcrvcryHXC9pM_w4s1sI";
 
+let promo = [];
+
 class NewProduct {
   constructor(_name, _description, _brand, _imageUrl, _price) {
     this.name = _name;
@@ -38,6 +40,9 @@ const getData = function () {
 
 const form = document.getElementById("formProducts");
 
+const addressBarContent = new URLSearchParams(location.search);
+const promotion = addressBarContent.get("location");
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const name = document.getElementById("name");
@@ -47,6 +52,7 @@ form.addEventListener("submit", function (e) {
   const price = document.getElementById("price");
 
   const productInsered = new NewProduct(name.value, description.value, supplier.value, image.value, price.value);
+  promo.push(productInsered);
 
   fetch(striveUrl, {
     method: "POST",
@@ -66,11 +72,10 @@ form.addEventListener("submit", function (e) {
     })
     .then((data) => {
       alert("inserimento completato");
-      console.log(data);
+      form.reset();
+      console.log(promo);
     })
     .catch((err) => {
       alert("ERRORE: " + err);
     });
 });
-
-getData();

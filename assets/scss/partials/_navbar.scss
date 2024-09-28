@@ -1,3 +1,16 @@
 .dunderlogo {
   max-height: 3rem !important;
 }
+
+.promotion {
+  background-color: rgb(128, 190, 36);
+}
+
+.promotion a {
+  color: white;
+}
+
+.promotion a:hover {
+  background-color: orange;
+  color: white;
+}

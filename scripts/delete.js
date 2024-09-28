@@ -24,10 +24,12 @@ fetch(striveUrl, {
     data.forEach((element) => {
       const box = document.createElement("div");
       box.className = `d-flex align-items-center py-1 px-3`;
+      const deleteBtnId = `${element.name.replace(/\s+/g, "")}${element._id}`; // rimuove gli spazi dal name
       box.innerHTML = `<h5 class="m-0 flex-grow-1">${element.name}</h5>
 <button class="p-1 me-2 bg-transparent"><i class="infotext bi bi-info-circle-fill text-primary fs-5" data-bs-toggle="modal" data-bs-target="#${element._id}"></i></button>
-<button class="p-1 bg-transparent"><i class="deletetext bi bi-trash-fill text-danger fs-5"></i></button>`;
+<button id="${deleteBtnId}" class="p-1 bg-transparent"><i class="deletetext bi bi-trash-fill text-danger fs-5"></i></button>`;
       section.appendChild(box);
+
       // CREAZIONE MODALE INFO
       let modalBox = document.createElement("aside");
       modalBox.className = `modal fade`;
@@ -53,6 +55,27 @@ fetch(striveUrl, {
           </div>
         </div>`;
       myMain.appendChild(modalBox);
+
+      document.getElementById(deleteBtnId).addEventListener("click", function () {
+        fetch(striveUrl + "/" + element._id, {
+          method: "DELETE",
+          headers: {
+            Authorization: striveAuthorization
+          }
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Errore nella cancellazione");
+            }
+            alert("PRODOTTO ELIMINATO");
+            // Rimuovi l'elemento dalla lista dopo la cancellazione
+            box.remove();
+            modalBox.remove(); // rimuovi anche il modale associato
+          })
+          .catch((err) => {
+            alert("ERRORE: " + err);
+          });
+      });
     });
   })
   .catch((err) => {
