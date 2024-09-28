@@ -10,4 +10,8 @@
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.dunderlogo {
+  max-height: 3rem !important;
 }/*# sourceMappingURL=style.css.map */
