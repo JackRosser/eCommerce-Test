@@ -19,18 +19,19 @@ fetch(striveUrl, {
   })
   .then((data) => {
     section.innerHTML = "";
+    console.log(data);
 
     data.forEach((element) => {
       const box = document.createElement("div");
       box.className = `d-flex align-items-center py-1 px-3`;
       box.innerHTML = `<h5 class="m-0 flex-grow-1">${element.name}</h5>
-<button class="p-1 me-2 bg-transparent"><i class="infotext bi bi-info-circle-fill text-primary fs-5" data-bs-toggle="modal" data-bs-target="#info"></i></button>
+<button class="p-1 me-2 bg-transparent"><i class="infotext bi bi-info-circle-fill text-primary fs-5" data-bs-toggle="modal" data-bs-target="#${element._id}"></i></button>
 <button class="p-1 bg-transparent"><i class="deletetext bi bi-trash-fill text-danger fs-5"></i></button>`;
       section.appendChild(box);
       // CREAZIONE MODALE INFO
       let modalBox = document.createElement("aside");
       modalBox.className = `modal fade`;
-      modalBox.id = "info";
+      modalBox.id = element._id;
       modalBox.tabindex = "-1";
       modalBox["aria-labelledby"] = "exampleModalLabel";
       modalBox["aria-hidden"] = "true";
